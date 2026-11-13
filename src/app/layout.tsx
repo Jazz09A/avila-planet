@@ -4,7 +4,7 @@ import CartDrawer from "@/components/CartDrawer";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MobileDock from "@/components/MobileDock";
-import Starfield from "@/components/Starfield";
+import Brasas from "@/components/Brasas";
 import { CartProvider } from "@/lib/cart";
 import "./globals.css";
 
@@ -23,22 +23,22 @@ const jura = Jura({
 });
 
 export const metadata: Metadata = {
-  title: "Ávila Planet · Hamburguesas de otro planeta",
+  title: "Algo Diferente · Parrillas, hamburguesas y pepitos",
   description:
-    "Seis hamburguesas, seis planetas. Elige tu destino, agrega al pedido y recíbelo en minutos.",
-  keywords: ["hamburguesas", "delivery", "Ávila Planet", "comida", "restaurante"],
+    "Parrillas, hamburguesas y pepitos a las brasas. Elige, agrega al pedido y recíbelo en minutos.",
+  keywords: ["parrillas", "hamburguesas", "pepitos", "Algo Diferente", "comida", "restaurante", "delivery"],
   openGraph: {
-    title: "Ávila Planet · Hamburguesas de otro planeta",
+    title: "Algo Diferente · Parrillas, hamburguesas y pepitos",
     description:
-      "Seis hamburguesas, seis planetas. Elige tu destino, agrega al pedido y recíbelo en minutos.",
+      "Parrillas, hamburguesas y pepitos a las brasas. Elige, agrega al pedido y recíbelo en minutos.",
     type: "website",
     locale: "es_MX",
-    siteName: "Ávila Planet",
+    siteName: "Algo Diferente",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d0420",
+  themeColor: "#0b0b0c",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -55,7 +55,7 @@ export default function RootLayout({
     >
       <body>
         <CartProvider>
-          <Starfield />
+          <Brasas />
           <Header />
           <main>{children}</main>
           <Footer />

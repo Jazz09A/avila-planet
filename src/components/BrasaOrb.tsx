@@ -10,10 +10,10 @@ interface Props {
 }
 
 /**
- * Orbe/planeta: la pieza visual central de Ávila Planet.
+ * Orbe de brasa: la pieza visual central de Algo Diferente.
  * Todo se resuelve con variables CSS (`--c1`, `--c2`, `--c3`, `--glow`, `--tex`).
  */
-export function PlanetOrb({
+export function BrasaOrb({
   producto,
   tamano = "md",
   className = "",
@@ -34,4 +34,4 @@ export function PlanetOrb({
   return <div className={clases} style={{ ...variables, ...style }} aria-hidden="true" />;
 }
 
-export default PlanetOrb;
+export default BrasaOrb;

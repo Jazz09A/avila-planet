@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { useCarrito } from "@/lib/cart";
@@ -29,23 +28,36 @@ export function Header() {
   return (
     <header>
       <div className="wrap bar">
-        <Link href="/" className="logo" aria-label="Ávila Planet, inicio">
-          <Image
-            src="/avatarila-logo.jpg"
-            alt=""
+        <Link href="/" className="logo" aria-label="Algo Diferente, inicio">
+          {/* Slot del logo: reemplazar el SVG por <Image src="/logo-algo-diferente.png" …>
+              en cuanto se agregue el archivo real en public/. */}
+          <svg
+            viewBox="0 0 32 32"
             width={30}
             height={30}
-            unoptimized
-            priority
-          />
-          <span>ÁVILA PLANET</span>
+            role="img"
+            aria-label="Algo Diferente"
+            className="logomark"
+          >
+            <circle cx="16" cy="16" r="15" fill="#141416" stroke="var(--fire)" strokeWidth="1.5" />
+            <path
+              d="M16 6c3.4 4 5.5 6.7 5.5 9.9A5.5 5.5 0 0 1 16 21.4a5.5 5.5 0 0 1-5.5-5.5C10.5 12.7 12.6 10 16 6z"
+              fill="var(--fire)"
+            />
+            <path
+              d="M16 13.5c1.7 2 2.7 3.3 2.7 4.7A2.7 2.7 0 0 1 16 21a2.7 2.7 0 0 1-2.7-2.8c0-1.4 1-2.7 2.7-4.7z"
+              fill="#ffd27a"
+            />
+          </svg>
+          <span>ALGO DIFERENTE</span>
         </Link>
         <nav>
-          <Link href="/#planetas">Planetas</Link>
+          <Link href="/#especiales">Especiales</Link>
           <Link href="/menu">Menú</Link>
           <Link href="/#como">Cómo pedir</Link>
+          {/* Placeholder: sustituir por el Instagram real de la cadena. */}
           <a
-            href="https://www.instagram.com/avilaplanet/"
+            href="https://www.instagram.com/"
             target="_blank"
             rel="noopener noreferrer"
           >

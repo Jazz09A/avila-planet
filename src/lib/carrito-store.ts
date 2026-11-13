@@ -15,7 +15,7 @@ export interface LineaCarrito {
   cantidad: number;
 }
 
-const CLAVE_ALMACEN = "avila-planet:carrito:v1";
+const CLAVE_ALMACEN = "algo-diferente:carrito:v1";
 const VACIO: LineaCarrito[] = [];
 
 let cache: LineaCarrito[] | null = null;

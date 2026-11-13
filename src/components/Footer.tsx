@@ -5,13 +5,14 @@ export function Footer() {
     <footer>
       <div className="wrap">
         <span>
-          Ávila Planet · Hamburguesas de otro planeta ·{" "}
+          Algo Diferente · Parrillas, hamburguesas y pepitos ·{" "}
+          {/* Placeholder: sustituir por el Instagram real de la cadena. */}
           <a
-            href="https://www.instagram.com/avilaplanet/"
+            href="https://www.instagram.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            @avilaplanet
+            Instagram
           </a>
         </span>
         <span>Abierto todos los días, 12:00 a 23:00</span>

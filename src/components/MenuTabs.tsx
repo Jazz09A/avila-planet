@@ -5,11 +5,11 @@ import { CATEGORIAS, productosPorCategoria } from "@/lib/catalog";
 import type { Categoria } from "@/lib/types";
 import { ProductCard } from "./ProductCard";
 
-const CATEGORIA_INICIAL: Categoria = "hamburguesas";
+const CATEGORIA_INICIAL: Categoria = "parrillas";
 
 /**
  * Pestañas de categoría + rejilla de productos.
- * Reproduce `#tabs` y `#grid` de la landing original y añade un filtro
+ * Reproduce `#tabs` y `#grid` del diseño original y añade un filtro
  * opcional por nombre o descripción dentro de la categoría activa.
  */
 export function MenuTabs() {

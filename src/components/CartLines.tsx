@@ -1,6 +1,6 @@
 "use client";
 
-import PlanetOrb from "./PlanetOrb";
+import BrasaOrb from "./BrasaOrb";
 import { useCarrito } from "@/lib/cart";
 import { formatearMoneda } from "@/lib/money";
 
@@ -19,7 +19,7 @@ export function CartLines() {
     <>
       {detalle.map(({ producto, cantidad }) => (
         <div className="line" key={producto.id}>
-          <PlanetOrb producto={producto} tamano="sm" />
+          <BrasaOrb producto={producto} tamano="sm" />
           <div>
             <h4>{producto.nombre}</h4>
             <small>{formatearMoneda(producto.precio)} c/u</small>

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useCarrito } from "@/lib/cart";
 
-type Destino = "inicio" | "planetas" | "menu";
+type Destino = "inicio" | "especiales" | "menu";
 
 export function MobileDock() {
   const pathname = usePathname();
@@ -18,16 +18,16 @@ export function MobileDock() {
   const enMenu = pathname === "/menu";
   const activo: Destino = enMenu ? "menu" : (seccionEnVista ?? "inicio");
 
-  // Scroll spy en la home: si el tour de planetas está a la vista, se resalta.
+  // Scroll spy en la home: si el tour de especialidades está a la vista, se resalta.
   useEffect(() => {
     if (pathname !== "/") return;
-    const seccion = document.getElementById("planetas");
+    const seccion = document.getElementById("especiales");
     if (!seccion) return;
     const observador = new IntersectionObserver(
       (entradas) => {
         for (const entrada of entradas) {
           if (entrada.isIntersecting) {
-            setSeccionEnVista("planetas");
+            setSeccionEnVista("especiales");
           } else if (entrada.boundingClientRect.top > 0) {
             setSeccionEnVista(null);
           }
@@ -73,16 +73,16 @@ export function MobileDock() {
           <span>Inicio</span>
         </Link>
         <Link
-          href="/#planetas"
-          data-destino="planetas"
-          className={activo === "planetas" ? "on" : ""}
-          aria-current={activo === "planetas" ? "page" : undefined}
+          href="/#especiales"
+          data-destino="especiales"
+          className={activo === "especiales" ? "on" : ""}
+          aria-current={activo === "especiales" ? "page" : undefined}
         >
           <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="5" />
-            <ellipse cx="12" cy="12" rx="10" ry="3.5" transform="rotate(-20 12 12)" />
+            <path d="M12 3c2.8 3.2 4.5 5.6 4.5 8.3A4.5 4.5 0 0 1 12 15.8a4.5 4.5 0 0 1-4.5-4.5C7.5 8.6 9.2 6.2 12 3z" />
+            <path d="M8 18.5h8" />
           </svg>
-          <span>Planetas</span>
+          <span>Especiales</span>
         </Link>
         <Link
           href="/menu"

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import EstadoPedido from "@/components/EstadoPedido";
-import { PlanetOrb } from "@/components/PlanetOrb";
+import BrasaOrb from "@/components/BrasaOrb";
 import { obtenerProducto } from "@/lib/catalog";
 import { formatearMoneda } from "@/lib/money";
 import { obtenerPedido } from "@/lib/orders";
@@ -11,8 +11,8 @@ import { ETIQUETAS_MODO, ETIQUETAS_PAGO } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Tu pedido · Ávila Planet",
-  description: "Sigue el estado de tu pedido en órbita.",
+  title: "Tu pedido · Algo Diferente",
+  description: "Sigue el estado de tu pedido en tiempo real.",
 };
 
 function Dato({ etiqueta, valor }: { etiqueta: string; valor: string }) {
@@ -55,16 +55,16 @@ export default async function PaginaPedido({
     );
   }
 
-  const primerNombre = pedido.cliente.nombre.trim().split(/\s+/)[0] || "piloto";
-  const planeta =
-    obtenerProducto("tierra") ?? obtenerProducto(pedido.items[0]?.id ?? "");
+  const primerNombre = pedido.cliente.nombre.trim().split(/\s+/)[0] || "amigo";
+  const brasa =
+    obtenerProducto(pedido.items[0]?.id ?? "") ?? obtenerProducto("costillas");
 
   return (
     <section>
       <div className="wrap">
         <div className="done">
-          {planeta && <PlanetOrb producto={planeta} />}
-          <h2>PEDIDO EN ÓRBITA</h2>
+          {brasa && <BrasaOrb producto={brasa} />}
+          <h2>PEDIDO CONFIRMADO</h2>
           <p>
             Gracias, {primerNombre}. Tu pedido {pedido.codigo} por{" "}
             {formatearMoneda(pedido.total)} ya está en cocina.
@@ -103,7 +103,7 @@ export default async function PaginaPedido({
               return (
                 <li className="line" key={item.id}>
                   {producto ? (
-                    <PlanetOrb producto={producto} tamano="sm" />
+                    <BrasaOrb producto={producto} tamano="sm" />
                   ) : (
                     <div className="orb sm" aria-hidden="true" />
                   )}

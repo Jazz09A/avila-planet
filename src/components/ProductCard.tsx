@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type CSSProperties } from "react";
 import { AgregarButton } from "./AgregarButton";
-import { PlanetOrb } from "./PlanetOrb";
+import { BrasaOrb } from "./BrasaOrb";
 import { formatearMoneda } from "@/lib/money";
 import type { Producto } from "@/lib/types";
 
@@ -14,8 +14,8 @@ interface Props {
 
 /**
  * Tarjeta de producto del menú.
- * Reproduce el `<article class="item">` de la landing original: orbe del
- * planeta, nombre en mayúsculas, descripción, precio y botón "Agregar".
+ * Reproduce el `<article class="item">` del diseño original: orbe de
+ * brasa, nombre en mayúsculas, descripción, precio y botón "Agregar".
  */
 export function ProductCard({ producto, indice = 0 }: Props) {
   const tarjeta = useRef<HTMLElement>(null);
@@ -40,7 +40,7 @@ export function ProductCard({ producto, indice = 0 }: Props) {
 
   return (
     <article className="item" style={estilo} ref={tarjeta}>
-      <PlanetOrb producto={producto} tamano="sm" />
+      <BrasaOrb producto={producto} tamano="sm" />
       <div>
         <h3>{producto.nombre.toUpperCase()}</h3>
         <p>{producto.descripcion}</p>

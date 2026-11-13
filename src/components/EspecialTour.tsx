@@ -3,23 +3,24 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { PointerEvent, TouchEvent } from "react";
 import AgregarButton from "@/components/AgregarButton";
-import PlanetOrb from "@/components/PlanetOrb";
+import BrasaOrb from "@/components/BrasaOrb";
 import { useCarrito } from "@/lib/cart";
-import { BURGUERSAS } from "@/lib/catalog";
+import { DESTACADOS } from "@/lib/catalog";
 import { formatearMoneda } from "@/lib/money";
 
-/** Etiquetas de las tres estadísticas del tour: peso, picor y tiempo. */
-const ETIQUETAS_STATS = ["Peso", "Picor", "Tiempo"] as const;
+/** Etiquetas de las tres estadísticas del tour: porción, picor y tiempo. */
+const ETIQUETAS_STATS = ["Porción", "Picor", "Tiempo"] as const;
 
-const TOTAL = BURGUERSAS.length;
+const TOTAL = DESTACADOS.length;
 
 /**
- * Tour de planetas (id="planetas"): carrusel de las seis hamburguesas.
+ * Tour de especialidades (id="especiales"): carrusel de parrillas y
+ * hamburguesas destacadas.
  *
- * Réplica del carrusel de la landing original: flechas, dots, arrastre con el
- * dedo, teclas ← / → y efecto 3D del orbe al mover el puntero.
+ * Réplica del carrusel original: flechas, dots, arrastre con el dedo,
+ * teclas ← / → y efecto 3D del orbe al mover el puntero.
  */
-export function PlanetTour() {
+export function EspecialTour() {
   const [indice, setIndice] = useState(0);
   const slide = useRef<HTMLDivElement>(null);
   const toqueInicio = useRef<number | null>(null);
@@ -28,9 +29,9 @@ export function PlanetTour() {
   // El carrito es global: si el cajón está abierto, el tour no debe reaccionar.
   const { abierto } = useCarrito();
 
-  const producto = BURGUERSAS[indice];
+  const producto = DESTACADOS[indice];
 
-  /** Cambia de planeta con vuelta infinita y conserva el foco si estaba dentro. */
+  /** Cambia de especialidad con vuelta infinita y conserva el foco si estaba dentro. */
   const cambiar = useCallback(
     (destino: number) => {
       const objetivo = ((destino % TOTAL) + TOTAL) % TOTAL;
@@ -47,7 +48,7 @@ export function PlanetTour() {
     [indice],
   );
 
-  // Al cambiar de planeta se recrea el slide (key), así que el foco se
+  // Al cambiar de diapositiva se recrea el slide (key), así que el foco se
   // devuelve al botón de agregar de la nueva diapositiva.
   useEffect(() => {
     if (!restaurarFoco.current) return;
@@ -55,7 +56,7 @@ export function PlanetTour() {
     slide.current?.querySelector<HTMLElement>("button[data-add]")?.focus();
   }, [indice]);
 
-  // Teclado: ← / → cambian de planeta salvo que se esté editando un campo.
+  // Teclado: ← / → cambian de especialidad salvo que se esté editando un campo.
   useEffect(() => {
     function alPulsar(evento: KeyboardEvent) {
       if (evento.defaultPrevented) return;
@@ -136,22 +137,22 @@ export function PlanetTour() {
   return (
     <section
       className="tour"
-      id="planetas"
+      id="especiales"
       aria-roledescription="carousel"
-      aria-labelledby="titulo-planetas"
+      aria-labelledby="titulo-especiales"
     >
       <div className="wrap">
-        <h2 className="title" id="titulo-planetas">
-          El sistema solar{" "}
+        <h2 className="title" id="titulo-especiales">
+          Directo al fuego{" "}
           <br />
-          de las hamburguesas
+          de nuestras brasas
         </h2>
         <p className="sub">
-          Desliza entre planetas y conoce cada hamburguesa antes de pedirla.
+          Desliza entre especialidades y conoce cada plato antes de pedirlo.
         </p>
 
         <p className="sr-only" aria-live="polite">
-          {`Planeta ${indice + 1} de ${TOTAL}: ${producto.nombre}`}
+          {`Especialidad ${indice + 1} de ${TOTAL}: ${producto.nombre}`}
         </p>
 
         <div className="stage">
@@ -159,7 +160,7 @@ export function PlanetTour() {
             type="button"
             className="arrow"
             onClick={() => cambiar(indice - 1)}
-            aria-label="Planeta anterior"
+            aria-label="Especialidad anterior"
           >
             <svg
               viewBox="0 0 22 60"
@@ -205,8 +206,8 @@ export function PlanetTour() {
                 </AgregarButton>
               </div>
             </div>
-            <div className="planetbox">
-              <PlanetOrb producto={producto} />
+            <div className="brasabox">
+              <BrasaOrb producto={producto} />
             </div>
           </div>
 
@@ -214,7 +215,7 @@ export function PlanetTour() {
             type="button"
             className="arrow"
             onClick={() => cambiar(indice + 1)}
-            aria-label="Planeta siguiente"
+            aria-label="Especialidad siguiente"
           >
             <svg
               viewBox="0 0 22 60"
@@ -229,11 +230,11 @@ export function PlanetTour() {
         </div>
 
         <div className="dots">
-          {BURGUERSAS.map((planeta, i) => (
+          {DESTACADOS.map((especial, i) => (
             <button
-              key={planeta.id}
+              key={especial.id}
               type="button"
-              aria-label={`Ir a ${planeta.nombre}`}
+              aria-label={`Ir a ${especial.nombre}`}
               aria-current={i === indice}
               onClick={() => cambiar(i)}
             />
@@ -244,4 +245,4 @@ export function PlanetTour() {
   );
 }
 
-export default PlanetTour;
+export default EspecialTour;

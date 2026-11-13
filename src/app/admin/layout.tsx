@@ -5,9 +5,9 @@ import type { Metadata } from "next";
  * así que el título propio vive en este layout.
  */
 export const metadata: Metadata = {
-  title: "Panel de cocina · Ávila Planet",
+  title: "Panel de cocina · Algo Diferente",
   description:
-    "Pedidos en vivo de Ávila Planet: consulta los pedidos entrantes y actualiza su estado.",
+    "Pedidos en vivo de Algo Diferente: consulta los pedidos entrantes y actualiza su estado.",
   robots: { index: false, follow: false },
 };
 

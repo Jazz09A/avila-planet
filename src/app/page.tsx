@@ -3,35 +3,35 @@ import Link from "next/link";
 import AgregarButton from "@/components/AgregarButton";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
-import PlanetOrb from "@/components/PlanetOrb";
-import PlanetTour from "@/components/PlanetTour";
-import { BURGUERSAS } from "@/lib/catalog";
+import BrasaOrb from "@/components/BrasaOrb";
+import EspecialTour from "@/components/EspecialTour";
+import { DESTACADOS } from "@/lib/catalog";
 import { formatearMoneda } from "@/lib/money";
 
 /**
- * Home de Ávila Planet: portada, tour de planetas, adelanto del menú,
- * pasos para pedir y cierre con la llamada a la acción.
+ * Home de Algo Diferente: portada, tour de especialidades, adelanto del
+ * menú, pasos para pedir y cierre con la llamada a la acción.
  *
- * Server component: sólo PlanetTour necesita interactividad en el cliente.
+ * Server component: sólo EspecialTour necesita interactividad en el cliente.
  */
 export default function Home() {
   return (
     <>
       <Hero />
-      <PlanetTour />
+      <EspecialTour />
 
       <section id="menu">
         <div className="wrap">
           <h2 className="title">Menú completo</h2>
-          <p className="sub">Todo lo que viaja en la nave, listo para pedir.</p>
+          <p className="sub">Todo sale de las brasas, listo para pedir.</p>
           <div className="grid">
-            {BURGUERSAS.map((producto, i) => (
+            {DESTACADOS.slice(0, 6).map((producto, i) => (
               <article
                 className="item"
                 key={producto.id}
                 style={{ "--i": String(i) } as CSSProperties}
               >
-                <PlanetOrb producto={producto} tamano="sm" />
+                <BrasaOrb producto={producto} tamano="sm" />
                 <div>
                   <h3>{producto.nombre.toUpperCase()}</h3>
                   <p>{producto.descripcion}</p>
@@ -58,10 +58,10 @@ export default function Home() {
       <section>
         <div className="wrap">
           <div className="card p-8">
-            <h2 className="title">¿Listo para despegar?</h2>
+            <h2 className="title">¿Se antoja algo?</h2>
             <p className="desc">
-              Arma tu pedido con los seis planetas, acompañantes y bebidas.
-              Cocinamos al momento y entre 15 y 30 minutos estás en órbita.
+              Arma tu pedido con parrillas, hamburguesas y pepitos.
+              Cocinamos al momento y en 15 a 30 minutos está en tu mesa.
             </p>
             <div className="cta">
               <Link className="btn fill" href="/menu">

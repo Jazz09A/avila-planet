@@ -14,7 +14,7 @@ interface Props {
 
 /**
  * Botón de "agregar al pedido" con la chispa volando al carrito.
- * Lo usan el tour de planetas, el catálogo y la página de carrito.
+ * Lo usan el tour de especialidades, el catálogo y la página de carrito.
  */
 export function AgregarButton({
   id,

@@ -28,7 +28,7 @@ import {
  * `x-admin-pin` y se recuerda en `sessionStorage` durante la pestaña.
  */
 
-const CLAVE_PIN = "avila-planet:pin";
+const CLAVE_PIN = "algo-diferente:pin";
 const INTERVALO_REFRESCO = 5000;
 
 /** La hora se formatea en el navegador: el servidor nunca la pinta. */
@@ -227,7 +227,7 @@ function GatePin({
               <p
                 id="pin-error"
                 role="alert"
-                className="m-0 rounded-xl border border-[color:rgba(255,143,107,0.4)] bg-[color:rgba(255,143,107,0.08)] px-3 py-2 text-sm text-[color:var(--flame)]"
+                className="m-0 rounded-xl border border-[color:rgba(255,107,74,0.4)] bg-[color:rgba(255,107,74,0.08)] px-3 py-2 text-sm text-[color:var(--flame)]"
               >
                 {error}
               </p>
@@ -620,7 +620,7 @@ export default function PanelCocina() {
         {error && (
           <p
             role="alert"
-            className="mb-8 rounded-xl border border-[color:rgba(255,143,107,0.4)] bg-[color:rgba(255,143,107,0.08)] px-3 py-2 text-sm text-[color:var(--flame)]"
+            className="mb-8 rounded-xl border border-[color:rgba(255,107,74,0.4)] bg-[color:rgba(255,107,74,0.08)] px-3 py-2 text-sm text-[color:var(--flame)]"
           >
             {error}
           </p>

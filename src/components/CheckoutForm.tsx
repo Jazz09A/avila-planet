@@ -59,7 +59,7 @@ export function CheckoutForm({ compacta = false }: Props) {
 
     // Validación en cliente antes de tocar la red.
     if (detalle.length === 0) {
-      setError("Tu pedido está vacío. Agrega al menos un planeta.");
+      setError("Tu pedido está vacío. Agrega al menos un producto.");
       return;
     }
     if (nombre.trim().length < 2) {
@@ -246,7 +246,7 @@ export function CheckoutForm({ compacta = false }: Props) {
       {error && (
         <p
           role="alert"
-          className="m-0 rounded-xl border border-[color:rgba(255,143,107,0.4)] bg-[color:rgba(255,143,107,0.08)] px-3 py-2 text-sm text-[color:var(--flame)]"
+          className="m-0 rounded-xl border border-[color:rgba(255,107,74,0.4)] bg-[color:rgba(255,107,74,0.08)] px-3 py-2 text-sm text-[color:var(--flame)]"
         >
           {error}
         </p>

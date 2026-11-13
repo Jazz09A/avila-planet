@@ -3,8 +3,8 @@ import Link from "next/link";
 import CarritoCliente from "./CarritoCliente";
 
 export const metadata: Metadata = {
-  title: "Mi pedido · Ávila Planet",
-  description: "Revisa tu pedido y confirma la entrega en Ávila Planet.",
+  title: "Mi pedido · Algo Diferente",
+  description: "Revisa tu pedido y confirma la entrega en Algo Diferente.",
 };
 
 export default function PaginaCarrito() {

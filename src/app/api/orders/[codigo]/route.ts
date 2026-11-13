@@ -5,7 +5,7 @@ import { esquemaEstadoPedido, mensajeDeError } from "@/lib/validation";
 
 export const dynamic = "force-dynamic";
 
-/** Tracking público del pedido. Acepta `OB-1234` y `1234`. */
+/** Tracking público del pedido. Acepta `AD-1234` y `1234`. */
 export async function GET(
   request: Request,
   context: { params: Promise<{ codigo: string }> },

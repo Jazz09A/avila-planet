@@ -1,4 +1,9 @@
-export type Categoria = "hamburguesas" | "acompanantes" | "bebidas";
+export type Categoria =
+  | "parrillas"
+  | "hamburguesas"
+  | "pepitos"
+  | "acompanantes"
+  | "bebidas";
 
 export interface Producto {
   id: string;
@@ -6,17 +11,17 @@ export interface Producto {
   categoria: Categoria;
   precio: number;
   descripcion: string;
-  /** Subtítulo del tipo "La clásica" que aparece en el tour de planetas. */
+  /** Subtítulo del tipo "La clásica" que aparece en el tour de especialidades. */
   etiqueta?: string;
-  /** Etiquetas del tour: peso, picor y tiempo de preparación. */
+  /** Etiquetas del tour: porción, picor y tiempo de preparación. */
   stats?: [string, string, string];
-  /** Tres paradas del gradiente radial del orbe (planeta). */
+  /** Tres paradas del gradiente radial del orbe (brasa). */
   colores: [string, string, string];
   /** Color del resplandor exterior del orbe. */
   glow: string;
-  /** Añade el anillo orbital alrededor del planeta. */
+  /** Añade el anillo exterior alrededor del orbe. */
   anillo?: boolean;
-  /** Textura CSS opcional (nubes, cráteres, bandas). */
+  /** Textura CSS opcional (brasas, humo, marcas de parrilla). */
   textura?: string;
 }
 

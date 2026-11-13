@@ -24,7 +24,7 @@ export function CarritoCliente() {
         <p className="empty">
           Tu pedido está vacío.
           <br />
-          Elige un planeta y agrega tu primera hamburguesa.
+          Agrega algo del menú y arma tu primer pedido.
         </p>
         <Link href="/menu" className="btn">
           Ver menú completo

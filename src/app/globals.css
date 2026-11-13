@@ -4,16 +4,15 @@
 /* Tokens de diseño (Tailwind v4)                                     */
 /* ------------------------------------------------------------------ */
 @theme {
-  --color-void: #0d0420;
-  --color-deep: #170836;
-  --color-star: #eef2ff;
-  --color-dim: rgba(238, 242, 255, 0.62);
-  --color-line: rgba(214, 190, 255, 0.22);
-  --color-mars: #8f4dff;
-  --color-ember: #ffd27a;
-  --color-earth: #3b7bd9;
+  --color-void: #0b0b0c;
+  --color-deep: #17171a;
+  --color-star: #f4f1ea;
+  --color-dim: rgba(244, 241, 234, 0.62);
+  --color-line: rgba(255, 138, 58, 0.24);
+  --color-fire: #ff7a1a;
+  --color-ember: #ffb454;
   --color-lime: #7de2a8;
-  --color-flame: #ff8f6b;
+  --color-flame: #ff6b4a;
 
   --font-display: var(--font-syncopate), "Arial Black", sans-serif;
   --font-body: var(--font-jura), "Segoe UI", sans-serif;
@@ -24,16 +23,15 @@
 /* ------------------------------------------------------------------ */
 :root {
   color-scheme: dark;
-  --void: #0d0420;
-  --deep: #170836;
-  --line: rgba(214, 190, 255, 0.22);
-  --star: #eef2ff;
-  --dim: rgba(238, 242, 255, 0.62);
-  --mars: #8f4dff;
-  --ember: #ffd27a;
-  --earth: #3b7bd9;
+  --void: #0b0b0c;
+  --deep: #17171a;
+  --line: rgba(255, 138, 58, 0.24);
+  --star: #f4f1ea;
+  --dim: rgba(244, 241, 234, 0.62);
+  --fire: #ff7a1a;
+  --ember: #ffb454;
   --lime: #7de2a8;
-  --flame: #ff8f6b;
+  --flame: #ff6b4a;
   --display: var(--font-syncopate), "Arial Black", sans-serif;
   --body: var(--font-jura), "Segoe UI", sans-serif;
   box-sizing: border-box;
@@ -53,7 +51,7 @@
 
 @keyframes pulse {
   50% {
-    box-shadow: inset -26px -20px 46px rgba(0, 0, 0, 0.7), 0 0 120px rgba(176, 120, 255, 0.8);
+    box-shadow: inset -26px -20px 46px rgba(0, 0, 0, 0.7), 0 0 120px rgba(255, 122, 26, 0.7);
   }
 }
 
@@ -158,7 +156,7 @@ header {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
   z-index: 40;
-  background: rgba(13, 4, 32, 0.78);
+  background: rgba(11, 11, 12, 0.82);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -194,7 +192,7 @@ header {
   content: "";
   position: absolute;
   inset: -5px -9px;
-  border: 1.5px solid var(--mars);
+  border: 1.5px solid var(--fire);
   border-radius: 50%;
   transform: rotate(-25deg) scaleY(0.32);
 }
@@ -205,7 +203,7 @@ header {
   border-radius: 50%;
   display: block;
   object-fit: cover;
-  box-shadow: 0 0 18px rgba(143, 77, 255, 0.6);
+  box-shadow: 0 0 18px rgba(255, 122, 26, 0.55);
 }
 
 .logo i {
@@ -250,7 +248,7 @@ nav a:hover {
   min-width: 22px;
   height: 22px;
   border-radius: 11px;
-  background: var(--mars);
+  background: var(--fire);
   font-size: 12px;
   font-weight: 600;
   padding: 0 6px;
@@ -264,7 +262,7 @@ nav a:hover {
   width: 100%;
   transform-origin: 0 50%;
   transform: scaleX(0);
-  background: linear-gradient(90deg, var(--mars), var(--ember));
+  background: linear-gradient(90deg, var(--fire), var(--ember));
 }
 
 /* ------------------------------------------------------------------ */
@@ -295,9 +293,9 @@ nav a:hover {
   background: linear-gradient(
     100deg,
     var(--star) 20%,
-    #c9a6ff 40%,
-    var(--ember) 50%,
-    #c9a6ff 60%,
+    var(--ember) 40%,
+    var(--fire) 50%,
+    var(--ember) 60%,
     var(--star) 80%
   );
   background-size: 250% 100%;
@@ -313,7 +311,7 @@ nav a:hover {
 
 .hero p {
   max-width: 460px;
-  color: rgba(238, 242, 255, 0.9);
+  color: rgba(244, 241, 234, 0.9);
   text-shadow: 0 2px 14px var(--void);
   font-size: 18px;
   margin: 0 0 40px;
@@ -347,9 +345,9 @@ nav a:hover {
 }
 
 .btn.fill {
-  background: linear-gradient(120deg, #8f4dff, #c04dff);
+  background: linear-gradient(120deg, #ff7a1a, #ff5a00);
   border-color: transparent;
-  box-shadow: 0 0 28px rgba(143, 77, 255, 0.5);
+  box-shadow: 0 0 28px rgba(255, 122, 26, 0.45);
 }
 
 .btn.fill:hover {
@@ -383,9 +381,9 @@ nav a:hover {
   aspect-ratio: 1;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: radial-gradient(circle at 50% 0, #4a1c9e 0, #2a0e66 36%, var(--void) 70%);
-  box-shadow: 0 -2px 0 #d2b4ff, 0 -10px 40px rgba(176, 120, 255, 0.65),
-    0 -40px 120px rgba(143, 77, 255, 0.45);
+  background: radial-gradient(circle at 50% 0, #6e2a0a 0, #38130a 36%, var(--void) 70%);
+  box-shadow: 0 -2px 0 #ffb454, 0 -10px 40px rgba(255, 122, 26, 0.55),
+    0 -40px 120px rgba(255, 90, 0, 0.4);
 }
 
 .horizon::after {
@@ -393,10 +391,10 @@ nav a:hover {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(40px 14px at 46% 9%, rgba(255, 196, 110, 0.9), transparent 70%),
-    radial-gradient(70px 18px at 52% 11%, rgba(255, 180, 84, 0.7), transparent 70%),
-    radial-gradient(30px 10px at 58% 8%, rgba(255, 220, 160, 0.8), transparent 70%),
-    radial-gradient(50px 14px at 40% 13%, rgba(255, 170, 90, 0.55), transparent 70%);
+  background: radial-gradient(40px 14px at 46% 9%, rgba(255, 140, 40, 0.9), transparent 70%),
+    radial-gradient(70px 18px at 52% 11%, rgba(255, 100, 20, 0.75), transparent 70%),
+    radial-gradient(30px 10px at 58% 8%, rgba(255, 200, 90, 0.85), transparent 70%),
+    radial-gradient(50px 14px at 40% 13%, rgba(255, 80, 10, 0.6), transparent 70%);
 }
 
 .scroll {
@@ -419,7 +417,7 @@ nav a:hover {
   background: var(--line);
 }
 
-.heroplanet {
+.herobrasa {
   position: absolute;
   right: 7%;
   top: 16%;
@@ -427,12 +425,12 @@ nav a:hover {
   will-change: transform;
 }
 
-.heroplanet .orb {
+.herobrasa .orb {
   animation: pulse 5s ease-in-out infinite, float 8s ease-in-out infinite;
 }
 
 /* ------------------------------------------------------------------ */
-/* Tour de planetas                                                     */
+/* Tour de especialidades                                                */
 /* ------------------------------------------------------------------ */
 section {
   padding: 96px 0;
@@ -503,7 +501,7 @@ section {
   line-height: 0.95;
   letter-spacing: 0.02em;
   margin: 0 0 6px;
-  background: linear-gradient(180deg, var(--star) 30%, rgba(238, 242, 255, 0.18));
+  background: linear-gradient(180deg, var(--star) 30%, rgba(244, 241, 234, 0.18));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -555,7 +553,7 @@ section {
   margin-right: 12px;
 }
 
-.planetbox {
+.brasabox {
   display: grid;
   place-items: center;
   position: relative;
@@ -563,7 +561,7 @@ section {
   animation: float 7s ease-in-out infinite;
 }
 
-.planetbox .orb {
+.brasabox .orb {
   transform: perspective(900px) rotateY(var(--ry, 0deg)) rotateX(var(--rx, 0deg));
   transition: transform 0.18s;
 }
@@ -591,7 +589,7 @@ section {
 }
 
 /* ------------------------------------------------------------------ */
-/* Orbes / planetas                                                    */
+/* Orbes de brasas                                                      */
 /* ------------------------------------------------------------------ */
 .orb {
   --s: min(340px, 62vw);
@@ -676,7 +674,7 @@ section {
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: rgba(30, 12, 70, 0.55);
+  background: rgba(23, 23, 26, 0.7);
   animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   animation-delay: calc(var(--i, 0) * 70ms);
   transition: border-color 0.3s;
@@ -692,7 +690,7 @@ section {
   inset: 0;
   background: radial-gradient(
     260px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(170, 110, 255, 0.3),
+    rgba(255, 122, 26, 0.26),
     transparent 70%
   );
   opacity: 0;
@@ -701,7 +699,7 @@ section {
 }
 
 .item:hover {
-  border-color: rgba(190, 150, 255, 0.6);
+  border-color: rgba(255, 150, 70, 0.6);
 }
 
 .item:hover::before {
@@ -813,7 +811,7 @@ footer a {
 .veil {
   position: fixed;
   inset: 0;
-  background: rgba(8, 2, 20, 0.7);
+  background: rgba(5, 5, 6, 0.72);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
@@ -968,7 +966,7 @@ select {
 }
 
 input::placeholder {
-  color: rgba(238, 242, 255, 0.38);
+  color: rgba(244, 241, 234, 0.38);
 }
 
 select {
@@ -1057,9 +1055,9 @@ select {
   padding: 12px;
   border-radius: 999px;
   max-width: calc(100vw - 16px);
-  background: linear-gradient(180deg, #ffffff, #efecf6);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 50px rgba(143, 77, 255, 0.3),
-    inset 0 1px 0 #fff;
+  background: linear-gradient(180deg, #232326, #161618);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 50px rgba(255, 122, 26, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   display: none;
 }
 
@@ -1070,8 +1068,8 @@ select {
   gap: 2px;
   padding: 8px;
   border-radius: 999px;
-  background: linear-gradient(180deg, #e7e4ee, #f7f6fa);
-  box-shadow: inset 0 3px 9px rgba(40, 25, 80, 0.2), inset 0 -2px 4px rgba(255, 255, 255, 0.95);
+  background: linear-gradient(180deg, #101011, #1b1b1e);
+  box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.55), inset 0 -2px 4px rgba(255, 255, 255, 0.05);
 }
 
 .pill {
@@ -1082,8 +1080,8 @@ select {
   left: 0;
   width: 0;
   border-radius: 999px;
-  background: linear-gradient(180deg, #2e2540, #14101f);
-  box-shadow: 0 8px 16px rgba(25, 12, 50, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, #ff7a1a, #d9530a);
+  box-shadow: 0 8px 16px rgba(120, 40, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: transform 0.5s cubic-bezier(0.3, 1.35, 0.5, 1),
     width 0.5s cubic-bezier(0.3, 1.35, 0.5, 1);
 }
@@ -1102,7 +1100,7 @@ select {
   border: 0;
   border-radius: 999px;
   background: transparent;
-  color: #4b4658;
+  color: #a8a29a;
   font-family: var(--body);
   font-size: 15px;
   font-weight: 400;
@@ -1112,7 +1110,7 @@ select {
 }
 
 .dock a.on {
-  color: #fff;
+  color: #141416;
 }
 
 .dock svg {
@@ -1137,8 +1135,8 @@ select {
   height: 20px;
   padding: 0 5px;
   border-radius: 10px;
-  background: var(--mars);
-  color: #fff;
+  background: var(--fire);
+  color: #141416;
   font-size: 12px;
   font-weight: 600;
   display: grid;
@@ -1190,7 +1188,7 @@ select {
 .card {
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: rgba(30, 12, 70, 0.55);
+  background: rgba(23, 23, 26, 0.7);
 }
 
 .badge {
@@ -1207,7 +1205,7 @@ select {
 }
 
 .badge-recibido {
-  border-color: rgba(238, 242, 255, 0.35);
+  border-color: rgba(244, 241, 234, 0.35);
   color: var(--star);
 }
 
@@ -1222,12 +1220,12 @@ select {
 }
 
 .badge-entregado {
-  border-color: rgba(143, 77, 255, 0.55);
-  color: #c9a6ff;
+  border-color: rgba(255, 180, 84, 0.55);
+  color: var(--ember);
 }
 
 .badge-cancelado {
-  border-color: rgba(255, 143, 107, 0.5);
+  border-color: rgba(255, 107, 74, 0.5);
   color: var(--flame);
 }
 
@@ -1306,13 +1304,13 @@ select {
     bottom: calc(130px - 140vw);
   }
 
-  .heroplanet {
+  .herobrasa {
     right: -70px;
     top: 6%;
     opacity: 0.5;
   }
 
-  .heroplanet .orb {
+  .herobrasa .orb {
     --s: 240px !important;
   }
 
@@ -1361,8 +1359,8 @@ select {
   }
 
   .hero h1,
-  .heroplanet .orb,
-  .planetbox,
+  .herobrasa .orb,
+  .brasabox,
   .item {
     animation: none;
   }

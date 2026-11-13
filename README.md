@@ -1,10 +1,11 @@
-# Ávila Planet · Hamburguesas de otro planeta
+# Algo Diferente · Parrillas, hamburguesas y pepitos
 
-Demo local de un e-commerce de hamburguesas con tema espacial, construida con
+Demo local de un e-commerce de parrillas con tema de brasas, construida con
 **Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS v4**.
 
-El diseño replica la landing original (`Ávila Planet · Hamburguesas de otro planeta.html`),
-que se encuentra en la carpeta padre y sirve como referencia visual.
+Adaptación de la demo original «Ávila Planet»: nueva identidad (negro +
+naranja), nuevo catálogo (parrillas, hamburguesas, pepitos, acompañantes
+y bebidas) y fondo de brasas animadas.
 
 ## Puesta en marcha
 
@@ -28,10 +29,10 @@ pnpm typecheck    # tsc --noEmit
 
 | Ruta | Qué es |
 | --- | --- |
-| `/` | Home: hero con cielo estrellado, tour de los 6 planetas, menú y "cómo pedir" |
-| `/menu` | Catálogo completo con pestañas (hamburguesas, acompañantes, bebidas) y buscador |
+| `/` | Home: hero con brasas, tour de especialidades, menú y "cómo pedir" |
+| `/menu` | Catálogo completo con pestañas (parrillas, hamburguesas, pepitos, acompañantes, bebidas) y buscador |
 | `/carrito` | Carrito en página completa con el checkout |
-| `/pedido/[codigo]` | Confirmación y seguimiento del pedido (`OB-####`) |
+| `/pedido/[codigo]` | Confirmación y seguimiento del pedido (`AD-####`) |
 | `/admin` | Panel de cocina: pedidos entrantes y cambio de estado (PIN) |
 
 ## Arquitectura
@@ -40,19 +41,19 @@ pnpm typecheck    # tsc --noEmit
 src/
 ├─ app/
 │  ├─ layout.tsx              # fuentes, providers, header, dock, footer, drawer global
-│  ├─ globals.css             # Tailwind v4 + sistema de diseño (tokens + CSS de la landing)
+│  ├─ globals.css             # Tailwind v4 + sistema de diseño (tokens + CSS)
 │  ├─ api/orders/route.ts     # POST crear pedido · GET listar (admin)
 │  ├─ api/orders/[codigo]/    # GET tracking · PATCH estado (admin)
 │  ├─ menu/page.tsx
 │  ├─ carrito/page.tsx
-│  ├─ pedido/[codido]/page.tsx
+│  ├─ pedido/[codigo]/page.tsx
 │  └─ admin/page.tsx
-├─ components/                # Starfield, Header, MobileDock, Hero, PlanetTour,
-│                             # PlanetOrb, ProductCard, MenuTabs, CartDrawer,
+├─ components/                # Brasas, Header, MobileDock, Hero, EspecialTour,
+│                             # BrasaOrb, ProductCard, MenuTabs, CartDrawer,
 │                             # CartLines, CheckoutForm, EstadoPedido, HowItWorks, Footer
 └─ lib/
    ├─ types.ts                # Producto, Pedido, estados, etiquetas
-   ├─ catalog.ts              # los 12 productos
+   ├─ catalog.ts              # los 18 productos
    ├─ cart.tsx + carrito-store.ts  # contexto del carrito (useSyncExternalStore + localStorage)
    ├─ orders.ts               # store JSON de pedidos (escritura atómica)
    ├─ validation.ts           # esquemas zod
@@ -73,3 +74,16 @@ src/
 - **Panel de cocina protegido**: `GET /api/orders` y `PATCH /api/orders/[codigo]`
   exigen la cabecera `x-admin-pin`.
 - **Sin base de datos ni dependencias nativas**: la demo arranca con `pnpm install` y ya.
+- **El CSS del diseño vive en `@layer components`**: así las utilidades de Tailwind
+  (capa `utilities`) pueden sobrescribirlo (`sm:grid-cols-2`, `gap-4`…) sin tener que
+  recurrir a `!important`. Las clases propias (`grid`, `item`, `btn`…) mandan sobre el
+  preflight de Tailwind (capa `base`), que es lo que quiere el diseño original.
+
+### Identidad
+
+- Paleta: negro `#0b0b0c` / `#17171a` + naranja `#ff7a1a` (tokens `--void`,
+  `--deep`, `--fire`, `--ember`… en `globals.css`).
+- Fondo: canvas de brasas ascendentes (`components/Brasas.tsx`).
+- Logo: SVG temporal en el header; sustituir por el archivo real en `public/`
+  (slot comentado en `components/Header.tsx`).
+- Instagram: enlaces placeholder en header y footer.

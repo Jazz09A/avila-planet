@@ -7,14 +7,14 @@ export function HowItWorks() {
   return (
     <section id="como">
       <div className="wrap">
-        <h2 className="title">Tres pasos para el despegue</h2>
+        <h2 className="title">Tres pasos y a la mesa</h2>
         <p className="sub">
-          Sin llamadas ni esperas: tu pedido sale directo a cocina.
+          Sin llamadas ni esperas: tu pedido sale directo a la parrilla.
         </p>
         <div className="how">
           <div>
             <h3>Elige</h3>
-            <p>Explora los planetas o el menú y agrega lo que se te antoje.</p>
+            <p>Explora las especialidades o el menú y agrega lo que se te antoje.</p>
           </div>
           <div>
             <h3>Confirma</h3>
@@ -22,7 +22,7 @@ export function HowItWorks() {
           </div>
           <div>
             <h3>Recibe</h3>
-            <p>Cocinamos al momento. Entre 15 y 30 minutos estás en órbita.</p>
+            <p>Cocinamos al momento. Entre 15 y 30 minutos lo tienes en la mesa.</p>
           </div>
         </div>
       </div>

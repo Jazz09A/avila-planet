@@ -70,10 +70,10 @@ function esPedido(valor: unknown): valor is Pedido {
   );
 }
 
-/** Normaliza a `OB-####`: acepta `OB-1234`, `ob-1234` y `1234`. */
+/** Normaliza a `AD-####`: acepta `AD-1234`, `ad-1234` y `1234`. */
 function normalizarCodigo(codigo: string): string {
   const limpio = codigo.trim().toUpperCase();
-  return limpio.startsWith("OB-") ? limpio : `OB-${limpio}`;
+  return limpio.startsWith("AD-") ? limpio : `AD-${limpio}`;
 }
 
 function marcaTiempo(iso: string): number {
@@ -118,15 +118,15 @@ async function escribirPedidos(pedidos: Pedido[]): Promise<void> {
   }
 }
 
-/** Genera un código `OB-####` que todavía no existe en el store. */
+/** Genera un código `AD-####` que todavía no existe en el store. */
 function generarCodigo(existentes: Set<string>): string {
   for (let intento = 0; intento < 200; intento += 1) {
-    const codigo = `OB-${1000 + Math.floor(Math.random() * 9000)}`;
+    const codigo = `AD-${1000 + Math.floor(Math.random() * 9000)}`;
     if (!existentes.has(codigo)) return codigo;
   }
   // Todos los aleatorios ocupados: se toma el primer hueco libre.
   for (let numero = 1000; numero <= 9999; numero += 1) {
-    const codigo = `OB-${numero}`;
+    const codigo = `AD-${numero}`;
     if (!existentes.has(codigo)) return codigo;
   }
   throw new Error("No quedan códigos de pedido disponibles.");
@@ -140,7 +140,7 @@ export async function listarPedidos(): Promise<Pedido[]> {
   );
 }
 
-/** Busca un pedido por código (acepta `OB-1234` y `1234`). */
+/** Busca un pedido por código (acepta `AD-1234` y `1234`). */
 export async function obtenerPedido(codigo: string): Promise<Pedido | null> {
   const objetivo = normalizarCodigo(codigo);
   const pedidos = await leerPedidos();
